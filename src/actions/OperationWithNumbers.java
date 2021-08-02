@@ -2,6 +2,8 @@ package actions;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
 
 public class OperationWithNumbers {
 
@@ -105,6 +107,16 @@ public class OperationWithNumbers {
         int[] filteredValuesArray = convertArrListToArray(filteredValues);
         return filteredValuesArray;
 
+    }
+
+    public static void countUniqueNumbersInValue(int value){
+
+        Map<Integer, String> uniqueValues = new HashMap<Integer, String>();
+        char[] arrayOfNumber = String.valueOf(value).toCharArray();
+        for(int i = 0; i < arrayOfNumber.length; i++){
+            uniqueValues.put(Character.getNumericValue(arrayOfNumber[i]),String.valueOf(arrayOfNumber[i]));
+        }
+        System.out.println(uniqueValues.size());
     }
 
 }

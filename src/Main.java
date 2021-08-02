@@ -15,6 +15,7 @@ public class Main {
                 Tasks.task3();
                 break;
             case 4:
+                Tasks.task4();
                 break;
             default:
                 System.out.println("Incorrect task number!");

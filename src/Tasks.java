@@ -32,4 +32,10 @@ public class Tasks {
         Output.arrayOfNumbers(OperationWithNumbers.compareArrayWithAverage(arrayOfNumbers,averageValue,moreThenAverage),false,true);
 
     }
+
+    public static void task4(){
+
+        OperationWithNumbers.countUniqueNumbersInValue(11222223);
+
+    }
 }
