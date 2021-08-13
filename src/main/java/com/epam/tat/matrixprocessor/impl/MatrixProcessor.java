@@ -1,7 +1,9 @@
 package com.epam.tat.matrixprocessor.impl;
 
 import com.epam.tat.matrixprocessor.IMatrixProcessor;
+import com.epam.tat.matrixprocessor.exception.MatrixProcessorException;
 
+import javax.xml.crypto.MarshalException;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
@@ -33,6 +35,14 @@ public class MatrixProcessor implements IMatrixProcessor {
 	 */
 	@Override
 	public double[][] transpose(double[][] matrix) {
+
+//		if(matrix.length<=1 || matrix.length>10){
+//			throw new MatrixProcessorException("Count of rows is not in range 0 < countOfRows < 10");
+//		}
+//		if(matrix[0].length<=1 || matrix[0].length>10){
+//			throw new MatrixProcessorException("Count of columns is not in range 0 < countOfColumns < 10");
+//		}
+
 		double[][] transposedMatrix = new double[matrix[0].length][matrix.length];
 
 		for(int j = 0; j < matrix[0].length; j++){
@@ -55,6 +65,14 @@ public class MatrixProcessor implements IMatrixProcessor {
 	 */
 	@Override
 	public double[][] turnClockwise(double[][] matrix) {
+
+//		if(matrix.length<=1 || matrix.length>10){
+//			throw new MatrixProcessorException("Count of rows is not in range 0 < countOfRows < 10");
+//		}
+//		if(matrix[0].length<=1 || matrix[0].length>10){
+//			throw new MatrixProcessorException("Count of columns is not in range 0 < countOfColumns < 10");
+//		}
+
 		double[][] rotatedMatrix = new double[matrix[0].length][matrix.length];
 
 		for(int j = 0, k = 0; j < matrix[0].length; j++, k++){
@@ -77,6 +95,14 @@ public class MatrixProcessor implements IMatrixProcessor {
 	 */
 	@Override
 	public double[][] multiplyMatrices(double[][] firstMatrix, double[][] secondMatrix) {
+
+//		if((firstMatrix.length<=1 || firstMatrix.length>10) || (secondMatrix.length<=1 || secondMatrix.length>10)){
+//			throw new MatrixProcessorException("Count of rows is not in range 0 < countOfRows < 10");
+//		}
+//		if((firstMatrix[0].length<=1 || firstMatrix[0].length>10) || (secondMatrix[0].length<=1 || secondMatrix[0].length>10)){
+//			throw new MatrixProcessorException("Count of columns is not in range 0 < countOfColumns < 10");
+//		}
+
 		double[][] resultMatrix = new double[firstMatrix.length][secondMatrix[0].length];
 		for (int i = 0; i < firstMatrix.length; i++){
 			for (int j = 0; j < secondMatrix[0].length; j++){
@@ -98,6 +124,17 @@ public class MatrixProcessor implements IMatrixProcessor {
 	 */
 	@Override
 	public double[][] getInverseMatrix(double[][] matrix) {
+
+//		if(matrix.length!=matrix[0].length){
+//			throw new MatrixProcessorException("Count of rows is not equal count of column");
+//		}
+//		if(matrix.length<=1 || matrix.length>10){
+//			throw new MatrixProcessorException("Count of rows is not in range 0 < countOfRows < 10");
+//		}
+//		if(matrix[0].length<=1 || matrix[0].length>10){
+//			throw new MatrixProcessorException("Count of columns is not in range 0 < countOfColumns < 10");
+//		}
+
 		double[][] inverseMatrix = new double[matrix.length][matrix.length];
 		double[][] newMatrix= new double[matrix.length-1][matrix.length-1];
 
@@ -129,6 +166,10 @@ public class MatrixProcessor implements IMatrixProcessor {
 		inverseMatrix = transpose(inverseMatrix);
 		double determinant = getMatrixDeterminant(matrix);
 
+		if(determinant==0){
+			throw new MatrixProcessorException("Determinant = 0. Inverse matrix doesn't exist");
+		}
+
 		for (int i = 0; i < inverseMatrix.length; i++){
 			for (int j = 0; j < inverseMatrix.length; j++){
 				inverseMatrix[i][j] = BigDecimal.valueOf(inverseMatrix[i][j]/determinant).setScale(3, RoundingMode.HALF_EVEN).doubleValue();
@@ -147,6 +188,16 @@ public class MatrixProcessor implements IMatrixProcessor {
 	 */
 	@Override
 	public double getMatrixDeterminant(double[][] matrix) {
+
+//		if(matrix.length!=matrix[0].length){
+//			throw new MatrixProcessorException("Count of rows is not equal count of column");
+//		}
+//		if(matrix.length<=1 || matrix.length>10){
+//			throw new MatrixProcessorException("Count of rows is not in range 0 < countOfRows < 10");
+//		}
+//		if(matrix[0].length<=1 || matrix[0].length>10){
+//			throw new MatrixProcessorException("Count of columns is not in range 0 < countOfColumns < 10");
+//		}
 
 		double determinant=0;
 
