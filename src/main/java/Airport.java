@@ -51,12 +51,7 @@ public class Airport {
 
     public PassengerPlane getPassengerPlaneWithMaxPassengersCapacity() {
         List<PassengerPlane> passengerPlanes = getPassengerPlanes();
-        return Collections.max(passengerPlanes, new Comparator<PassengerPlane>() {
-            @Override
-            public int compare(PassengerPlane o1, PassengerPlane o2) {
-                return o1.getPassengersCapacity() - o2.getPassengersCapacity();
-            }
-        });
+        return Collections.max(passengerPlanes, (o1, o2) -> o1.getPassengersCapacity() - o2.getPassengersCapacity());
     }
 
     public List<MilitaryPlane> getTransportMilitaryPlanes() {
@@ -72,32 +67,17 @@ public class Airport {
     }
 
     public Airport sortByMaxDistance() {
-        Collections.sort(planes, new Comparator<Plane>() {
-            @Override
-            public int compare(Plane o1, Plane o2) {
-                return o1.getMaxFlightDistance() - o2.getMaxFlightDistance();
-            }
-        });
+        Collections.sort(planes, (Comparator<Plane>) (o1, o2) -> o1.getMaxFlightDistance() - o2.getMaxFlightDistance());
         return this;
     }
 
     public Airport sortByMaxSpeed() {
-        Collections.sort(planes, new Comparator<Plane>() {
-            @Override
-            public int compare(Plane o1, Plane o2) {
-                return o1.getMaxSpeed() - o2.getMaxSpeed();
-            }
-        });
+        Collections.sort(planes, (Comparator<Plane>) (o1, o2) -> o1.getMaxSpeed() - o2.getMaxSpeed());
         return this;
     }
 
     public Airport sortByMaxLoadCapacity() {
-        Collections.sort(planes, new Comparator<Plane>() {
-            @Override
-            public int compare(Plane o1, Plane o2) {
-                return o1.getMaxLoadCapacity() - o2.getMaxLoadCapacity();
-            }
-        });
+        Collections.sort(planes, (Comparator<Plane>) (o1, o2) -> o1.getMaxLoadCapacity() - o2.getMaxLoadCapacity());
         return this;
     }
 
