@@ -1,7 +1,4 @@
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 
 import Planes.*;
 import models.MilitaryType;
@@ -102,6 +99,19 @@ public class Airport {
             }
         });
         return this;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Airport airport = (Airport) o;
+        return Objects.equals(planes, airport.planes);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(planes);
     }
 
     @Override

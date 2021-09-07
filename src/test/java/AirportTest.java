@@ -71,8 +71,9 @@ public class AirportTest {
         );
 
         Airport airport = new Airport(planes);
-      //  Assert.assertEquals(expectedSortedByMaxLoadCapacityPlanes,airport.sortByMaxLoadCapacity());
-        System.out.println((airport.sortByMaxLoadCapacity()).equals(expectedSortedByMaxLoadCapacityPlanes));
+        Airport expectedSortByMaxLoadCapacityAirport = new Airport(expectedSortedByMaxLoadCapacityPlanes);
+        Assert.assertEquals(expectedSortByMaxLoadCapacityAirport,airport.sortByMaxLoadCapacity());
+
     }
 
     @Test
