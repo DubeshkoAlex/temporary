@@ -27,7 +27,7 @@ public abstract class Plane {
         return maxFlightDistance;
     }
 
-    public int getMaxLoadCapacity() { return this.maxLoadCapacity; }
+    public int getMaxLoadCapacity() { return maxLoadCapacity; }
 
     @Override
     public boolean equals(Object o) {

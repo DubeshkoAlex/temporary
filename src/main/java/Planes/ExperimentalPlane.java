@@ -1,6 +1,7 @@
 package Planes;
 
 import java.util.Objects;
+
 import models.ClassificationLevel;
 import models.ExperimentalTypes;
 
@@ -8,7 +9,8 @@ public class ExperimentalPlane extends Plane{
     private ExperimentalTypes experimentalType;
     private ClassificationLevel classificationLevel;
 
-    public ExperimentalPlane(String model, int maxSpeed, int maxFlightDistance, int maxLoadCapacity, ExperimentalTypes experimentalType, ClassificationLevel classificationLevel) {
+    public ExperimentalPlane(String model, int maxSpeed, int maxFlightDistance, int maxLoadCapacity,
+                             ExperimentalTypes experimentalType, ClassificationLevel classificationLevel) {
         super(model, maxSpeed, maxFlightDistance, maxLoadCapacity);
         this.experimentalType = experimentalType;
         this.classificationLevel = classificationLevel;

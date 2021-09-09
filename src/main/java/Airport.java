@@ -1,4 +1,8 @@
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Objects;
 
 import Planes.*;
 import models.MilitaryType;
@@ -7,7 +11,7 @@ public class Airport {
     private List<? extends Plane> planes;
 
     public Airport(List<? extends Plane> planes) {
-        this.planes = planes;
+        this.planes = new ArrayList<>(planes);
     }
 
     public List<? extends Plane> getPlanes() {
