@@ -1,6 +1,6 @@
-package carClasses;
+package CarsEnum;
 
-public enum FamilyClass {
+public enum BodyCar {
     SEDAN,
     HATCHBACK,
     MINIVAN,

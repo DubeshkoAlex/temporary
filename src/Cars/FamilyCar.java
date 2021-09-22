@@ -1,23 +1,17 @@
 package Cars;
 
-import carClasses.FamilyClass;
+import CarsEnum.BodyCar;
 
 import java.util.Objects;
 
 public class FamilyCar extends Car{
-    private FamilyClass familyClass;
     private int babySeatCount;
     private int tabletsCount;
 
-    public FamilyCar(String brand, String model, int maxLoadCapacity, double priceForKm, double cost, double fuelConsumption, double maxSpeed, int releaseYear, FamilyClass familyClass, int babySeatCount, int tabletsCount) {
-        super(brand, model, maxLoadCapacity, priceForKm, cost, fuelConsumption, maxSpeed, releaseYear);
-        this.familyClass = familyClass;
+    public FamilyCar(String brand, String model, int maxLoadCapacity, double priceForKm, double cost, double fuelConsumption, double maxSpeed, int releaseYear, BodyCar bodyCar, int babySeatCount, int tabletsCount) {
+        super(brand, model, maxLoadCapacity, priceForKm, cost, fuelConsumption, maxSpeed, releaseYear, bodyCar);
         this.babySeatCount = babySeatCount;
         this.tabletsCount = tabletsCount;
-    }
-
-    public FamilyClass getFamilyClass() {
-        return familyClass;
     }
 
     public int getBabySeatCount() {
@@ -34,18 +28,17 @@ public class FamilyCar extends Car{
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
         FamilyCar familyCar = (FamilyCar) o;
-        return babySeatCount == familyCar.babySeatCount && tabletsCount == familyCar.tabletsCount && familyClass == familyCar.familyClass;
+        return babySeatCount == familyCar.babySeatCount && tabletsCount == familyCar.tabletsCount;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), familyClass, babySeatCount, tabletsCount);
+        return Objects.hash(super.hashCode(), babySeatCount, tabletsCount);
     }
 
     @Override
     public String toString() {
-        return super.toString().replace("}",", familyClass=" + familyClass +
-                ", babySeatCount=" + babySeatCount +
+        return super.toString().replace("}",", babySeatCount=" + babySeatCount +
                 ", tabletsCount=" + tabletsCount +
                 "}");
     }

@@ -1,13 +1,5 @@
-import Cars.*;
-import carClasses.BusinessClass;
-import carClasses.ComfortClass;
-import carClasses.EconomyClass;
-import carClasses.FamilyClass;
 import utils.ReaderFile;
-
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.List;
 
 public class Runner {
 

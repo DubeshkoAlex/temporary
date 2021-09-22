@@ -1,5 +1,7 @@
 package Cars;
 
+import CarsEnum.BodyCar;
+
 import java.util.Objects;
 
 public abstract class Car {
@@ -11,8 +13,9 @@ public abstract class Car {
     private double fuelConsumption;
     private double maxSpeed;
     private int releaseYear;
+    private BodyCar bodyCar;
 
-    public Car(String brand, String model, int maxLoadCapacity, double priceForKm, double cost, double fuelConsumption, double maxSpeed, int releaseYear) {
+    public Car(String brand, String model, int maxLoadCapacity, double priceForKm, double cost, double fuelConsumption, double maxSpeed, int releaseYear, BodyCar bodyCar) {
         this.brand = brand;
         this.model = model;
         this.maxLoadCapacity = maxLoadCapacity;
@@ -21,6 +24,7 @@ public abstract class Car {
         this.fuelConsumption = fuelConsumption;
         this.maxSpeed = maxSpeed;
         this.releaseYear = releaseYear;
+        this.bodyCar = bodyCar;
     }
 
     public String getBrand() {
@@ -53,6 +57,10 @@ public abstract class Car {
 
     public int getReleaseYear() {
         return releaseYear;
+    }
+
+    public BodyCar getBodyCar() {
+        return bodyCar;
     }
 
     @Override
