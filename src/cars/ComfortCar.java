@@ -1,6 +1,6 @@
-package Cars;
+package cars;
 
-import CarsEnum.BodyCar;
+import carsEnum.BodyCar;
 
 import java.util.Objects;
 
@@ -8,7 +8,7 @@ public class ComfortCar extends Car {
     private int airbagCount;
     private boolean conditioner;
 
-    public ComfortCar(String brand, String model, int maxLoadCapacity, double priceForKm, double cost, double fuelConsumption, double maxSpeed, int releaseYear, BodyCar bodyCar, int airbagCount, boolean conditioner) {
+    public ComfortCar(String brand, String model, int maxLoadCapacity, double priceForKm, double cost, double fuelConsumption, int maxSpeed, int releaseYear, BodyCar bodyCar, int airbagCount, boolean conditioner) {
         super(brand, model, maxLoadCapacity, priceForKm, cost, fuelConsumption, maxSpeed, releaseYear, bodyCar);
         this.airbagCount = airbagCount;
         this.conditioner = conditioner;

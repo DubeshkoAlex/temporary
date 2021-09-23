@@ -1,6 +1,6 @@
-package Cars;
+package cars;
 
-import CarsEnum.BodyCar;
+import carsEnum.BodyCar;
 
 import java.util.Objects;
 
@@ -9,11 +9,18 @@ public class BusinessCar extends Car{
     private int climateControlZonesCount;
     private boolean armrest;
 
-    public BusinessCar(String brand, String model, int maxLoadCapacity, double priceForKm, double cost, double fuelConsumption, double maxSpeed, int releaseYear, BodyCar bodyCar, boolean wiFi, int climateControlZonesCount, boolean armrest) {
+    public BusinessCar(String brand, String model, int maxLoadCapacity, double priceForKm, double cost, double fuelConsumption, int maxSpeed, int releaseYear, BodyCar bodyCar, boolean wiFi, int climateControlZonesCount, boolean armrest) {
         super(brand, model, maxLoadCapacity, priceForKm, cost, fuelConsumption, maxSpeed, releaseYear, bodyCar);
         this.wiFi = wiFi;
         this.climateControlZonesCount = climateControlZonesCount;
         this.armrest = armrest;
+    }
+
+    public BusinessCar(String brand, String model, String maxLoadCapacity, String priceForKm, String cost, String fuelConsumption, String maxSpeed, String releaseYear, String bodyCar, String wiFi, String climateControlZonesCount, String armrest){
+        super(brand, model, maxLoadCapacity, priceForKm, cost, fuelConsumption, maxSpeed, releaseYear, bodyCar);
+        this.wiFi = Boolean.parseBoolean(wiFi);
+        this.climateControlZonesCount = Integer.parseInt(climateControlZonesCount);
+        this.armrest = Boolean.parseBoolean(armrest);
     }
 
     public boolean isWiFi() {

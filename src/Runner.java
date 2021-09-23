@@ -1,3 +1,5 @@
+import cars.Car;
+import cars.EconomyCar;
 import utils.ReaderFile;
 import java.io.IOException;
 
@@ -18,7 +20,10 @@ public class Runner {
 
     public static void main(String[] args) throws IOException {
         ReaderFile readerFile = new ReaderFile();
-        readerFile.carBuilder();
+      //  readerFile.carBuilder();
+     //   System.out.println(EconomyCar.class.getDeclaredFields().length+ Car.class.getDeclaredFields().length);
+
+        readerFile.carMapBuilder();
 
     }
 }

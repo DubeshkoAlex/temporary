@@ -1,25 +1,24 @@
 package utils;
 
-import Cars.*;
-import CarsEnum.BodyCar;
-import CarsEnum.CarType;
+import cars.*;
+import carsEnum.BodyCar;
+import carsEnum.CarType;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class ReaderFile {
 
     private static final String CARS_PATH = "src/resources/Cars.txt";
-    private List<String> listFile = new ArrayList<>();
-    public List<Car> fileCars = new ArrayList<>();;
+    private List<String> File = new ArrayList<>();
+    public List<Car> cars = new ArrayList<>();;
 
     private void readFile() throws IOException {
         Reader file = new FileReader(CARS_PATH);
         BufferedReader bufferedReader = new BufferedReader(file);
         String line = bufferedReader.readLine();
         while (line != null){
-            listFile.add(line);
+            File.add(line);
             line = bufferedReader.readLine();
         }
     }
@@ -29,32 +28,32 @@ public class ReaderFile {
         String[] substring;
         String delimeter = ",";
 
-        for (String s: listFile) {
+        for (String s: File) {
             substring = s.split(delimeter);
             switch (CarType.valueOf(substring[0])){
                 case ECONOMY_CAR:
-                    fileCars.add(new EconomyCar(
+                    cars.add(new EconomyCar(
                             substring[1],
                             substring[2],
                             Integer.parseInt(substring[3]),
                             Double.parseDouble(substring[4]),
                             Double.parseDouble(substring[5]),
                             Double.parseDouble(substring[6]),
-                            Double.parseDouble(substring[7]),
+                            Integer.parseInt(substring[7]),
                             Integer.parseInt(substring[8]),
                             BodyCar.valueOf(substring[9]),
                             Boolean.parseBoolean(substring[10]))
                     );
                     break;
                 case FAMILY_CAR:
-                    fileCars.add(new FamilyCar(
+                    cars.add(new FamilyCar(
                             substring[1],
                             substring[2],
                             Integer.parseInt(substring[3]),
                             Double.parseDouble(substring[4]),
                             Double.parseDouble(substring[5]),
                             Double.parseDouble(substring[6]),
-                            Double.parseDouble(substring[7]),
+                            Integer.parseInt(substring[7]),
                             Integer.parseInt(substring[8]),
                             BodyCar.valueOf(substring[9]),
                             Integer.parseInt(substring[10]),
@@ -62,14 +61,14 @@ public class ReaderFile {
                     );
                     break;
                 case COMFORT_CAR:
-                    fileCars.add(new ComfortCar(
+                    cars.add(new ComfortCar(
                             substring[1],
                             substring[2],
                             Integer.parseInt(substring[3]),
                             Double.parseDouble(substring[4]),
                             Double.parseDouble(substring[5]),
                             Double.parseDouble(substring[6]),
-                            Double.parseDouble(substring[7]),
+                            Integer.parseInt(substring[7]),
                             Integer.parseInt(substring[8]),
                             BodyCar.valueOf(substring[9]),
                             Integer.parseInt(substring[10]),
@@ -77,14 +76,14 @@ public class ReaderFile {
                     );
                     break;
                 case BUSINESS_CAR:
-                    fileCars.add(new BusinessCar(
+                    cars.add(new BusinessCar(
                             substring[1],
                             substring[2],
                             Integer.parseInt(substring[3]),
                             Double.parseDouble(substring[4]),
                             Double.parseDouble(substring[5]),
                             Double.parseDouble(substring[6]),
-                            Double.parseDouble(substring[7]),
+                            Integer.parseInt(substring[7]),
                             Integer.parseInt(substring[8]),
                             BodyCar.valueOf(substring[9]),
                             Boolean.parseBoolean(substring[10]),
@@ -96,9 +95,55 @@ public class ReaderFile {
             }
         }
 
-        System.out.println(fileCars);
+        System.out.println(cars);
+
+    }
+
+    public void carMapBuilder() throws IOException{
+        Map<String,String> economyCar = new LinkedHashMap<>();
+        String[] economyCarFieldName = {"brand","model","maxLoadCapacity","priceForKm","priceForKm","cost","fuelConsumption","maxSpeed","releaseYear","bodyCar"};
+        for (int i = 0; i < economyCarFieldName.length; i++) {
+            economyCar.put(economyCarFieldName[i],null);
+        }
+        economyCar.put("brand",null);
+        economyCar.put("model","b");
+
+
+        economyCar.replace("brand","hi");
+        for (String k:economyCar.keySet()) {
+            System.out.println(economyCar.get(k));
+        }
+
+
+
+
+
+
+
+
+
 
 
 
     }
+
+    public void buildCar() throws IOException {
+        readFile();
+        String delimeter = ",";
+        for (int i = 0; i < File.size(); i++) {
+            String[] car = File.get(i).split(delimeter);
+            switch (CarType.valueOf(car[0])){
+                case ECONOMY_CAR:
+                    Map<String,String> economyMap = new HashMap<>();
+                    for (int j = 1; j < car.length; j++) {
+
+                    }
+            }
+        }
+
+
+
+
+    }
+
 }

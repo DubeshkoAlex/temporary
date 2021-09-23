@@ -1,4 +1,4 @@
-package CarsEnum;
+package carsEnum;
 
 public enum CarType {
     ECONOMY_CAR,

@@ -1,7 +1,8 @@
-package Cars;
+package cars;
 
-import CarsEnum.BodyCar;
+import carsEnum.BodyCar;
 
+import java.util.Map;
 import java.util.Objects;
 
 public abstract class Car {
@@ -11,11 +12,11 @@ public abstract class Car {
     private double priceForKm;
     private double cost;
     private double fuelConsumption;
-    private double maxSpeed;
+    private int maxSpeed;
     private int releaseYear;
     private BodyCar bodyCar;
 
-    public Car(String brand, String model, int maxLoadCapacity, double priceForKm, double cost, double fuelConsumption, double maxSpeed, int releaseYear, BodyCar bodyCar) {
+    public Car(String brand, String model, int maxLoadCapacity, double priceForKm, double cost, double fuelConsumption, int maxSpeed, int releaseYear, BodyCar bodyCar) {
         this.brand = brand;
         this.model = model;
         this.maxLoadCapacity = maxLoadCapacity;
@@ -25,6 +26,18 @@ public abstract class Car {
         this.maxSpeed = maxSpeed;
         this.releaseYear = releaseYear;
         this.bodyCar = bodyCar;
+    }
+
+    public Car(String brand, String model, String maxLoadCapacity, String priceForKm, String cost, String fuelConsumption, String maxSpeed, String releaseYear, String bodyCar){
+        this.brand = brand;
+        this.model = model;
+        this.maxLoadCapacity = Integer.parseInt(maxLoadCapacity);
+        this.priceForKm = Double.parseDouble(priceForKm);
+        this.cost = Double.parseDouble(cost);
+        this.fuelConsumption = Double.parseDouble(fuelConsumption);
+        this.maxSpeed = Integer.parseInt(maxSpeed);
+        this.releaseYear = Integer.parseInt(releaseYear);
+        this.bodyCar = BodyCar.valueOf(bodyCar);
     }
 
     public String getBrand() {
@@ -51,7 +64,7 @@ public abstract class Car {
         return fuelConsumption;
     }
 
-    public double getMaxSpeed() {
+    public int getMaxSpeed() {
         return maxSpeed;
     }
 
