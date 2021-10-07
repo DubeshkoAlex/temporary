@@ -1,0 +1,13 @@
+{
+  "brand": "Renault",
+  "model": "Logan",
+  "maxLoadCapacity": 3,
+  "priceForKm": 2,
+  "cost": 10000,
+  "fuelConsumption": 8,
+  "maxSpeed": 170,
+  "releaseYear": 2014,
+  "bodyCar": "SEDAN",
+  "AudioPlayer": true
+}
+
