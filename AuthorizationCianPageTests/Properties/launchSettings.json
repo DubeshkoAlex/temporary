@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "AuthorizationCianPageTests": {
+      "commandName": "Project",
+      "remoteDebugEnabled": false
+    }
+  }
+}

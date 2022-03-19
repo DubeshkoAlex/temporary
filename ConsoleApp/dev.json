@@ -1,0 +1,1 @@
+{"NumberOfInstances":4,"InstancesPurpose":null,"OperatingSystem":"Free: Debian, CentOS, CoreOS, Ubuntu or BYOL (Bring Your Own License)","VmClass":"Regular","Series":"N1","InstanceType":"n1-standard-8","GpuNumbers":1,"GpuType":"NVIDIA Tesla V100","LocalSSD":"2x375","DataCenterLocation":"Frankfurt","CommitedUsage":1}
